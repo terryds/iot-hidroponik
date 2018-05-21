@@ -34,6 +34,11 @@ new Vue({
     theme: 'auto', // Automatic theme detection
     // App routes
     routes: Routes,
+    methods: {
+      userIsLoggedIn: function() {
+        return true;
+      }
+    }
   },
   // Register App Component
   components: {

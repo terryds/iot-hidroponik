@@ -1,5 +1,6 @@
 import HomePage from './pages/home.vue';
 import AboutPage from './pages/about.vue';
+import DevicePage from './pages/device.vue';
 import FormPage from './pages/form.vue';
 import DynamicRoutePage from './pages/dynamic-route.vue';
 import NotFoundPage from './pages/not-found.vue';
@@ -10,7 +11,18 @@ import PanelRightPage from './pages/panel-right.vue';
 export default [
   {
     path: '/',
-    component: HomePage,
+    async(routeTo, routeFrom, resolve, reject) {
+      if(this.app.methods.userIsLoggedIn()) {
+          resolve({
+            component: HomePage,
+          });
+      }
+      else {
+        resolve({
+          component: NotFoundPage,
+        });
+      }
+    }
   },
   {
     path: '/panel-left/',
@@ -31,6 +43,10 @@ export default [
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,
+  },
+  {
+    path: '/device/:id',
+    component: DevicePage,
   },
   {
     path: '(.*)',

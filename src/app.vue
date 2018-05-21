@@ -1,6 +1,6 @@
 <template>
   <!-- App -->
-  <div id="app" class="color-theme-green">
+  <div id="app">
 
     <!-- Statusbar -->
     <f7-statusbar></f7-statusbar>
@@ -11,7 +11,7 @@
     </f7-panel>
 
     <!-- Main View -->
-    <f7-view id="main-view" url="/" main></f7-view>
+    <f7-view id="main-view" url="/" main :pushState="true"></f7-view>
 
     <!-- Popup -->
     <f7-popup id="popup">
