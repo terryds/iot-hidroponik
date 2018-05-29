@@ -34,6 +34,9 @@ new Vue({
     theme: 'auto', // Automatic theme detection
     // App routes
     routes: Routes,
+    toolbar: {
+      hideOnPageScroll: true
+    },
     methods: {
       userIsLoggedIn: function() {
         return true;

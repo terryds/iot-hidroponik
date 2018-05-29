@@ -1,20 +1,21 @@
 <template>
-  <f7-page :page-content="false" >
+  <f7-page :page-content="false">
     <f7-navbar :title="device.name" back-link="Back"></f7-navbar>
-    <f7-toolbar tabbar labels  class="toolbar-bottom-md">
+    <f7-toolbar tabbar labels bottom-md>
       <f7-link tab-link="#tab-1" tab-link-active text="Temperature" icon-fa="thermometer-half" icon-size="26"></f7-link>
       <f7-link tab-link="#tab-2" text="Conductivity" icon-fa="bolt" icon-size="26"></f7-link>
       <f7-link tab-link="#tab-3"  text="Acidity" icon-fa="vial" icon-size="26"></f7-link>
       <f7-link tab-link="#tab-4"  text="Settings" icon-fa="cogs" icon-size="26"></f7-link>
     </f7-toolbar>
     <f7-tabs swipeable>
-      <f7-tab id="tab-1"  class="page-content" tab-active>
+      <f7-tab id="tab-1"  class="page-content hide-bars-on-scroll" tab-active>
         <f7-block>
           <f7-card>
             <f7-card-header>Temperature Data</f7-card-header>
             <f7-card-content><line-chart :data="tempData"></line-chart></f7-card-content>
             <f7-card-footer>Latest data on 20-05-2018 10:50:42</f7-card-footer>
           </f7-card>
+
         </f7-block>
       </f7-tab>
       <f7-tab id="tab-2" class="page-content">
@@ -172,9 +173,6 @@ export default {
       this.acid = acidResult;
       this.date = dateResult;
 
-      console.log(this.date);
-      console.log(this.temp);
-
       this.tempData = {
         labels: this.date,
         datasets: [
@@ -185,7 +183,6 @@ export default {
           }
         ]
       };
-      console.log(this.tempData)
 
       this.condData = {
         labels: this.date,
